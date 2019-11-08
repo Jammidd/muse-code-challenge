@@ -39,20 +39,14 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'allauth',
-    'allauth.socialaccount',
-    'allauth.account',
     'corsheaders',
-    
     'rest_framework',
-    'rest_framework.authtoken',
-    'rest_auth',
-    
+
     'django_extensions',
 ]
 
 LOCAL_APPS = [
-    'apps.users',
+
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -186,14 +180,6 @@ TEMPLATES = [
 
 # region PASSWORD CONFIGURATION
 # ------------------------------------------------------------------------------
-PASSWORD_HASHERS = [
-    'django.contrib.auth.hashers.Argon2PasswordHasher',
-    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
-    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
-    'django.contrib.auth.hashers.BCryptPasswordHasher',
-]
-
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -202,34 +188,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 # endregion
 
-# region AUTHENTICATION CONFIGURATION
-# ------------------------------------------------------------------------------
-AUTHENTICATION_BACKENDS = [
-    
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend'
-]
-
-AUTH_USER_MODEL = 'users.User'
-# endregion
-
-
 # region REST CONFIGURATION
 # ------------------------------------------------------------------------------
 REST_FRAMEWORK = {
-    'UPLOADED_FILES_USE_URL': False,
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-    ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ],
-    'DEFAULT_PARSER_CLASSES': [
-        'rest_framework.parsers.JSONParser',
-        'rest_framework.parsers.FormParser',
-        'rest_framework.parsers.MultiPartParser',
-        'rest_framework.parsers.FileUploadParser'
-    ]
 }
 # endregion
 
