@@ -21,7 +21,13 @@ export default {
   },
   methods: {
     async fetchJobs () {
-      var response = await this.$http.get('/api/jobs/')
+      var url = '/api/jobs'
+
+      if (this.query) {
+        url += '?search=' + this.query
+      }
+
+      var response = await this.$http.get(url)
 
       this.jobs = response.data
     }
@@ -31,7 +37,7 @@ export default {
   },
   watch: {
     query () {
-      console.log(this.query)
+      this.fetchJobs()
     }
   }
 }
