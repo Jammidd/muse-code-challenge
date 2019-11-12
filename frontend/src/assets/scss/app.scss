@@ -39,3 +39,29 @@ body {
     background: #555;
   }
 }
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  width:100vw;
+  height: 100vh;
+}
+
+.modal {
+  position: absolute;
+  width:60vw;
+  height:80vh;
+  background: #FFFFFF;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+
+  .modal-body {
+    overflow:auto;
+    padding: 0 1.5rem 1.5rem;
+    height: calc(80vh - 60px);
+  }
+}

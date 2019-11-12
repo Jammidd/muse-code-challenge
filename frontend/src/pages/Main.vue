@@ -12,11 +12,13 @@
         <search-results :filters="filters" :query="query"></search-results>
       </div>
     </div>
+    <job-modal></job-modal>
   </div>
 </template>
 
 <script>
 import JobFilters from '@/components/JobFilters'
+import JobModal from '@/components/Modal'
 import SearchBar from '@/components/SearchBar'
 import SearchResults from '@/components/SearchResults'
 
@@ -42,6 +44,7 @@ export default {
   },
   components: {
     JobFilters,
+    JobModal,
     SearchBar,
     SearchResults
   }

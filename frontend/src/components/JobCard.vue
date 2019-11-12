@@ -1,7 +1,7 @@
 <template>
   <div class="border my-2 rounded p-2 mx-4">
     <div class="flex flex-wrap items-top">
-      <h4 class="text-sm font-semibold w-3/4">{{ item.title }}</h4>
+      <h4 class="text-sm font-semibold w-3/4 cursor-pointer" @click="openModal">{{ item.title }}</h4>
       <p class="float-right italic text-sm font-light w-1/4 text-right">{{ item.location }}</p>
     </div>
     <h6 class="py-1 text-sm text-indigo-500 font-normal">{{ item.company.name }}</h6>
@@ -17,6 +17,11 @@ export default {
     summary () {
       var cleanedDescription = this.item.description.replace(/<\/?[^>]+(>|$)/g, " ")
       return cleanedDescription.substring(0, 100) + '...'
+    }
+  },
+  methods: {
+    openModal () {
+      window.EventBus.$emit('open:modal', this.item.uuid)
     }
   }
 }
