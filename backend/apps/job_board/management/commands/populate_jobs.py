@@ -58,7 +58,7 @@ class Command(BaseCommand):
                         'title': r['name'],
                         'company': company,
                         'description': r['contents'],
-                        'locations': [elem['name'] for elem in r['locations']],
+                        'location': r['locations'][0]['name'] if len(r['locations']) > 0 else None,
                         'categories': [elem['name'] for elem in r['categories']],
                         'levels': [elem['name'][0] for elem in r['levels']]
                     }

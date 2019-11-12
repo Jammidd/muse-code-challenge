@@ -4,7 +4,7 @@
 
     <div class="flex flex-wrap items-top mt-4">
       <div class="w-1/5">
-        <job-filters></job-filters>
+        <job-filters @update="updateFilters"></job-filters>
       </div>
       <div class="w-2/3">
         <search-bar @update="updateQuery"></search-bar>
@@ -33,6 +33,9 @@ export default {
     }
   },
   methods: {
+    updateFilters (filters) {
+      this.filters = Object.assign({}, filters)
+    },
     updateQuery (query) {
       this.query = query
     }

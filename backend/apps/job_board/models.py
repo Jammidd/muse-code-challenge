@@ -29,7 +29,7 @@ class Job(models.Model):
     uuid = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
     title = models.CharField(max_length=256)
     company = models.ForeignKey(Company, related_name='company', on_delete=models.CASCADE)
-    locations = ArrayField(models.CharField(max_length=128, blank=True), null=True, blank=True)
+    location = models.CharField(max_length=128, null=True, blank=True)
     levels = ArrayField(models.CharField(max_length=1, choices=LEVEL_CHOICES, blank=True))
     categories = ArrayField(models.CharField(max_length=128, blank=True))
     description = models.TextField()

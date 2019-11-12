@@ -27,7 +27,7 @@ export default {
     return {
       query: '',
       timer: null,
-      typingDelay: 3000
+      typingDelay: 1000
     }
   }
 }

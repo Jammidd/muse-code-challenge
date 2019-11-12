@@ -23,13 +23,34 @@ export default {
     async fetchJobs () {
       var url = '/api/jobs'
 
+      var filterStr = ''
       if (this.query) {
-        url += '?search=' + this.query
+        filterStr += `search=${this.query}&`
       }
+
+      filterStr += this.generateFilterString()
+
+      url += `?${filterStr}`
 
       var response = await this.$http.get(url)
 
       this.jobs = response.data
+    },
+    generateFilterString () {
+      var str = ''
+      if (this.filters.location) {
+        str += `location=${this.filters.location}`
+      }
+
+      if (this.filters.category) {
+        str += `&category=${this.filters.category}`
+      }
+
+      if (this.filters.levels.length > 0) {
+        str += `&levels=${this.filters.levels.toString()}`
+      }
+
+      return str
     }
   },
   components: {
@@ -37,6 +58,9 @@ export default {
   },
   watch: {
     query () {
+      this.fetchJobs()
+    },
+    filters () {
       this.fetchJobs()
     }
   }

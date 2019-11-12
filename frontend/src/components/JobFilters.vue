@@ -27,6 +27,8 @@
       <label class="text-xs block uppercase text-gray-500 font-bold my-1">Category</label>
       <input class="w-full border rounded px-2 py-1 text-sm font-light" type="text" v-model="filters.category" placeholder="select category" />
     </div>
+
+    <button class="w-full rounded bg-indigo-400 mt-8 text-white p-2 text-sm" @click="applyFilters">Apply Filters</button>
   </div>
 </template>
 
@@ -40,6 +42,11 @@ export default {
         levels: [],
         category: null
       }
+    }
+  },
+  methods: {
+    applyFilters () {
+      this.$emit('update', this.filters)
     }
   }
 }
