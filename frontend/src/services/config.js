@@ -1,3 +1,3 @@
 export default {
-  'BASE_URL': 'muse_job_search.com'
+  'BASE_URL': 'http://localhost:8000'
 }
